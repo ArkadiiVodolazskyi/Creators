@@ -1,0 +1,63 @@
+@media (max-width: 1550px) {
+  html {
+    font-size: 1vmax;
+  }
+  .wrapper {
+    width: 80%;
+  }
+}
+@media (max-width: 1280px) {
+  html {
+    font-size: 1.1vmax;
+  }
+  .wrapper {
+    width: 90%;
+  }
+  div.blog .wrapper div.gridSecond {
+    width: 80%;
+    grid-template-areas: "gridS1 gridS1 gridS2 gridS2" "gridS3 gridS3 gridS4 gridS4" "gridS5 gridS5 gridS6 gridS6";
+    grid-gap: 2rem;
+  }
+  div.blog .wrapper div.gridSecond > section {
+    height: 30vh;
+  }
+}
+@media (max-width: 960px) {
+  html {
+    font-size: 1.2vmax;
+  }
+  section.welcome {
+    height: 50vh;
+  }
+  div.grid {
+    grid-template-rows: 15vh 15vh 15vh;
+    grid-gap: 1rem;
+  }
+  .wrapper {
+    width: 95%;
+  }
+}
+@media (max-width: 700px) {
+  html {
+    font-size: 1.3vmax;
+  }
+  div.ready .wrapper {
+    flex-direction: column;
+  }
+  div.ready .wrapper .content {
+    width: 100%;
+    padding: 2rem;
+    border: none;
+  }
+  div.ready .wrapper div.img {
+    width: 70%;
+    margin: 0 auto;
+    height: 30rem;
+  }
+  div.blog .wrapper div.gridSecond {
+    width: 90%;
+    padding: 0 2rem;
+    grid-template-areas: "gridS1" "gridS2" "gridS3" "gridS3" "gridS4" "gridS4" "gridS5" "gridS6";
+    grid-gap: 2rem;
+  }
+}

@@ -1,7 +1,31 @@
+// out: ../css/
+
+/* Reset styles  */
+* {
+
+    /* Positions */
+    margin: 0;
+    padding: 0;
+
+    /* Fonts */
+    font-weight: normal;
+    font-family: sans-serif;
+    line-height: 1.7rem;
+    color: #000;
+
+    /* Text decorations */
+    text-decoration: none;
+    list-style: none;
+
+    /* Calculations */
+    box-sizing: border-box;
+
+}
+
 // Basic styles ...................................
 
 html {
-    font-size: 18px;
+    font-size: 0.9375vmax;
 }
 
 body {
@@ -27,4 +51,110 @@ img {
     box-sizing: border-box;
     font-family: 'Raleway', sans-serif;
     line-height: 2rem;
+}
+
+// ========== Transitions ==========
+
+html {
+    scroll-behavior: smooth;
+}
+
+a, button {
+    transition: all 0.25s ease;
+}
+
+input {
+    transition: all 0.30s ease-in;
+}
+
+section {
+    transition: all 0.3s ease;
+
+    &::before {
+        transition: all 0.2s ease-in;
+    }
+
+    .content h1 {
+        transition: all 0.25s ease-in;
+    }
+
+}
+
+div.img {
+    transition: all 1.2s ease-in;
+}
+
+// ========== General styles ==========
+
+a.btn, button {
+    // Reset button styles
+    border: none;
+
+    display: inline-block;
+
+    padding: 0.5rem 1.8rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 4px;
+
+    color: @white;
+
+    background-color: @orange;
+    border-bottom: 4px solid darken(@orange, 10%);
+
+    transition: all 0.3s ease;
+
+    &:hover {
+        background-color: lighten(@orange, 9%);
+        cursor: pointer;
+    }
+
+    &.home {
+        background-color: lighten(@grey, 7%);
+        border-bottom: 4px solid darken(@grey, 8%);
+
+        &:hover {
+            background-color: lighten(@grey, 15%);
+            cursor: pointer;
+        }
+    }
+}
+
+div.img {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+section {
+    background-size: cover;
+    background-position: center;
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: darken(@grey, 0%);
+        filter: blur(0px);
+        opacity: 0.8;
+        z-index: 5;
+    }
+
+    * {
+        text-align: center;
+        color: @white;
+    }
+
+    .content {
+        z-index: 10;
+    }
 }

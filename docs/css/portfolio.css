@@ -115,134 +115,112 @@ section * {
 section .content {
   z-index: 10;
 }
-section.welcome {
-  height: 100vh;
+body {
+  position: relative;
 }
-section.welcome .content h1 {
-  margin-bottom: 2.2rem;
-  font-size: 3rem;
-  font-weight: bold;
-  line-height: 2.7rem;
+body.stopScroll {
+  overflow: hidden;
 }
-section.welcome .content .btns a.btn {
-  text-align: center;
-}
-section.welcome .content .btns a.btn.home {
-  margin-left: 1rem;
-}
-div.grid {
-  display: grid;
-  grid-template-rows: 33vh 33vh 33vh;
-  grid-template-areas: "grid1 grid1 grid2 grid3" "grid4 grid5 grid5 grid6" "grid7 grid8 grid9 grid6";
-  grid-gap: 0.5rem;
-  padding: 10px;
-}
-div.grid section {
+#overlay {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #000;
+  z-index: 10;
   cursor: pointer;
-  user-select: none;
 }
-div.grid section.grid1 {
-  grid-area: grid1;
+#overlay.opened {
+  opacity: 0.7;
+  visibility: visible;
 }
-div.grid section.grid2 {
-  grid-area: grid2;
+#modalOrder {
+  width: 40%;
+  background-color: #ddd;
+  position: fixed;
+  left: 50%;
+  top: 40%;
+  transform: translate(-50%, -50%);
+  transition: all 0.5s ease;
+  z-index: 30;
+  opacity: 0;
+  visibility: hidden;
+  overflow: hidden;
 }
-div.grid section.grid3 {
-  grid-area: grid3;
+#modalOrder.opened {
+  opacity: 1;
+  visibility: visible;
 }
-div.grid section.grid4 {
-  grid-area: grid4;
-}
-div.grid section.grid5 {
-  grid-area: grid5;
-}
-div.grid section.grid6 {
-  grid-area: grid6;
-}
-div.grid section.grid7 {
-  grid-area: grid7;
-}
-div.grid section.grid8 {
-  grid-area: grid8;
-}
-div.grid section.grid9 {
-  grid-area: grid9;
-}
-div.grid section:hover .content h1 {
-  color: #f0650d;
-}
-div.grid section:hover::before {
-  background-color: #2a3339;
-}
-div.grid section .content h1 {
-  color: #fffefd;
-}
-a.portfolio {
-  margin: 2.3rem auto;
-  padding: 0.5rem 2.5rem;
-}
-div.ready {
-  padding: 3.5rem 0;
-  background-color: #ededed;
-}
-div.ready * {
-  color: black;
-}
-div.ready .wrapper {
+#modalOrder form {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem;
 }
-div.ready .wrapper .content {
-  width: 50%;
-  padding: 4.5rem 0;
-  padding-right: 3.9rem;
-  border-right: 1px solid #d4d4d4;
+#modalOrder form > * {
+  width: 90%;
+  margin: 0.8rem;
 }
-div.ready .wrapper .content h2 {
-  margin-bottom: 30px;
-  font-size: 1.6rem;
-}
-div.ready .wrapper .content > p {
-  text-align: left;
-  font-size: 1.1rem;
-}
-div.ready .wrapper div.img {
-  width: 50%;
-  margin-left: 3.9rem;
-  background-size: cover;
-  background-position: center;
-}
-div.submit {
-  padding: 2.8rem 0;
-  background-color: #4b5a65;
-}
-div.submit .wrapper form {
-  display: flex;
-  justify-content: space-between;
-}
-div.submit .wrapper form input {
-  width: 23%;
-  padding: 0 10px;
+#modalOrder form input,
+#modalOrder form textarea {
+  padding: 0.9rem 1.0rem;
   font-size: 1rem;
   font-style: italic;
   border: none;
   background-color: #566774;
   color: #ddd;
+  resize: none;
 }
-div.submit .wrapper form input::placeholder {
+#modalOrder form input::placeholder,
+#modalOrder form textarea::placeholder {
   color: #7a8e9c;
 }
-div.submit .wrapper form input:focus {
+#modalOrder form input:focus,
+#modalOrder form textarea:focus {
   background-color: #ddd;
   color: #000;
 }
-div.submit .wrapper form a.btn {
-  width: 20%;
+#modalOrder form button {
+  width: 10rem;
   margin-right: 0;
   padding: 0.5rem 1rem;
 }
+header {
+  padding: 1rem 0;
+  background-color: #4b5a65;
+}
+header .wrapper nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+}
+header .wrapper nav a.btn * {
+  color: #ddd;
+}
+header .wrapper nav a.btn svg {
+  margin-left: 5px;
+}
 div.blog {
-  padding: 2.2rem 0;
+  padding-top: 2.2rem;
+  position: relative;
+}
+div.blog::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -10;
+  background-color: #4682B4;
+  opacity: 0.1;
+  content: "";
 }
 div.blog * {
   color: #333;
@@ -252,28 +230,26 @@ div.blog .wrapper h2 {
   margin-bottom: 40px;
   font-weight: bold;
   font-size: 1.8rem;
-  text-align: left;
+  text-align: center;
 }
 div.blog .wrapper div.gridSecond {
   display: grid;
-  margin: 0 auto;
-  grid-template-areas: "gridS1 gridS2 gridS3 gridS3" "gridS4 gridS4 gridS5 gridS6";
-  grid-gap: 1rem;
+  grid-template-areas: "gridS1 gridS2 gridS3" "gridS4 gridS5 gridS6";
+  grid-gap: 2rem;
 }
 div.blog .wrapper div.gridSecond > section {
   justify-content: flex-start;
-  padding-bottom: 30px;
-  background-color: #f1f1f1;
+  background-color: #e5e5e5;
   cursor: pointer;
+  border: 1px groove #eee;
 }
 div.blog .wrapper div.gridSecond > section::before {
   all: unset;
 }
 div.blog .wrapper div.gridSecond > section:hover {
-  background-color: #e5e5e5;
-}
-div.blog .wrapper div.gridSecond > section:hover div.img {
-  background-position: bottom center;
+  background-color: #ececec;
+  transform: scale(1.03);
+  box-shadow: 5px 5px 3px #ccc;
 }
 div.blog .wrapper div.gridSecond > section div.img {
   width: 100%;
@@ -281,17 +257,17 @@ div.blog .wrapper div.gridSecond > section div.img {
   background-position: top left;
 }
 div.blog .wrapper div.gridSecond > section div.text {
-  margin: auto 0;
+  margin: 20px 0;
 }
 div.blog .wrapper div.gridSecond > section div.text h3 {
   margin: 15px 0;
   padding: 0 20px;
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-weight: bold;
 }
 div.blog .wrapper div.gridSecond > section div.text p {
-  padding: 0 20px;
-  font-size: 0.9rem;
+  padding: 1rem;
+  font-size: 1rem;
 }
 div.blog .wrapper div.gridSecond > section.gridS1 {
   grid-area: gridS1;
@@ -311,8 +287,8 @@ div.blog .wrapper div.gridSecond > section.gridS5 {
 div.blog .wrapper div.gridSecond > section.gridS6 {
   grid-area: gridS6;
 }
-div.blog .wrapper a.btn {
-  margin-top: 2rem;
+div.blog .wrapper button {
+  margin: 2.5rem 0;
   padding: 0.7rem 2.8rem;
   color: #ddd;
 }
@@ -323,7 +299,7 @@ footer .wrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 2rem 0;
+  padding: 1rem 0;
 }
 footer .wrapper > * {
   text-transform: uppercase;
@@ -354,64 +330,44 @@ footer .wrapper div.text span {
 }
 @media (max-width: 1550px) {
   html {
-    font-size: 1vmax;
+    font-size: 1.1vmax;
   }
-  .wrapper {
-    width: 80%;
+  div.blog .wrapper div.gridSecond {
+    grid-template-areas: "gridS1 gridS2" "gridS3 gridS4" "gridS5 gridS6";
   }
 }
 @media (max-width: 1280px) {
   html {
-    font-size: 1.1vmax;
-  }
-  .wrapper {
-    width: 90%;
-  }
-  div.blog .wrapper div.gridSecond {
-    width: 80%;
-    grid-template-areas: "gridS1 gridS1 gridS2 gridS2" "gridS3 gridS3 gridS4 gridS4" "gridS5 gridS5 gridS6 gridS6";
-    grid-gap: 2rem;
-  }
-  div.blog .wrapper div.gridSecond > section {
-    height: 30vh;
-  }
-}
-@media (max-width: 960px) {
-  html {
-    font-size: 1.2vmax;
-  }
-  section.welcome {
-    height: 50vh;
-  }
-  div.grid {
-    grid-template-rows: 15vh 15vh 15vh;
-    grid-gap: 1rem;
-  }
-  .wrapper {
-    width: 95%;
-  }
-}
-@media (max-width: 700px) {
-  html {
     font-size: 1.3vmax;
   }
-  div.ready .wrapper {
-    flex-direction: column;
+}
+@media (max-width: 1100px) {
+  html {
+    font-size: 1.4vmax;
   }
-  div.ready .wrapper .content {
-    width: 100%;
-    padding: 2rem;
-    border: none;
+  .wrapper {
+    width: 60%;
   }
-  div.ready .wrapper div.img {
+  #modalOrder {
     width: 70%;
-    margin: 0 auto;
-    height: 30rem;
   }
   div.blog .wrapper div.gridSecond {
-    width: 90%;
-    padding: 0 2rem;
     grid-template-areas: "gridS1" "gridS2" "gridS3" "gridS3" "gridS4" "gridS4" "gridS5" "gridS6";
-    grid-gap: 2rem;
+  }
+}
+@media (max-width: 800px) {
+  html {
+    font-size: 1.6vmax;
+  }
+  .wrapper {
+    width: 80%;
+  }
+  #modalOrder {
+    width: 80%;
+  }
+}
+@media (max-width: 640px) {
+  .wrapper {
+    width: 90%;
   }
 }

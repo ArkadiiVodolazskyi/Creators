@@ -1,111 +1,9 @@
 // out: ../css/
 
-// Import reset styles
-@import "reset.less";
-
 // Import file with general styles
 @import "basic.less";
 
-
-// ========== Transitions ==========
-
-a {
-    transition: all 0.25s ease;
-}
-
-input {
-    transition: all 0.30s ease-in;
-}
-
-section {
-
-    &::before {
-        transition: all 0.2s ease-in;
-    }
-
-    .content h1 {
-        transition: all 0.25s ease-in;
-    }
-
-}
-
-div.img {
-    transition: all 1.2s ease-in;
-}
-
-// ========== General styles ==========
-
-a.btn {
-    display: inline-block;
-    
-    margin-right: 20px;
-    padding: 0.5rem 1.8rem;
-
-    font-size: 1.1rem;
-    font-weight: bold;
-    border-radius: 4px;
-
-    color: @white;
-
-    background-color: @orange;
-    border-bottom: 4px solid darken(@orange, 10%);
-
-    &:hover {
-        background-color: lighten(@orange, 9%);
-    }
-
-    &.home {
-        background-color: lighten(@grey, 7%);
-        border-bottom: 4px solid darken(@grey, 8%);
-
-        &:hover {
-            background-color: lighten(@grey, 15%);
-        }
-    }
-}
-
-div.img {
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-section {
-    background-size: cover;
-    background-position: center;
-    position: relative;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    
-    &::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: darken(@grey, 0%);
-        filter: blur(0px);
-        opacity: 0.8;
-        z-index: 5;
-    }
-
-    * {
-        text-align: center;
-        color: @white;
-    }
-
-    .content {
-        z-index: 10;
-    }
-}
-
-
 // ========== Specified styles ==========
-
 
 section.welcome {
     height: 100vh;
@@ -116,17 +14,18 @@ section.welcome {
             margin-bottom: 2.2rem;
 
             font-size: 3rem;
-            font-weight: bold;  
+            font-weight: bold;
             line-height: 2.7rem;
         }
 
         .btns {
 
-            .btns {
-                display: inline-block;
+            a.btn {
                 text-align: center;
 
-                
+                &.home {
+                    margin-left: 1rem;
+                }
             }
         }
     }
@@ -175,14 +74,13 @@ div.grid {
         }
 
         &:hover {
-            
+
             .content h1 {
                 color: lighten(@orange, 0%);
             }
 
             &::before {
                 background-color: darken(@grey, 15%);
-                filter: blur(5px);
             }
         }
 
@@ -207,11 +105,12 @@ div.ready {
 
     .wrapper {
         display: flex;
+        flex-direction: row;
 
         .content {
             width: 50%;
             padding: 4.5rem 0;
-            padding-right: 3.9rem; 
+            padding-right: 3.9rem;
 
             border-right: 1px solid darken(#ededed, 10%);
 
@@ -240,33 +139,36 @@ div.submit {
     background-color: @grey;
 
     .wrapper {
-        display: flex;
-        justify-content: space-between;
 
-        input {
-            width: 23%;
-            padding: 0 10px;
+        form {
+            display: flex;
+            justify-content: space-between;
 
-            font-size: 1rem;
-            font-style: italic;
-            border: none;
+            input {
+                width: 23%;
+                padding: 0 10px;
 
-            background-color: lighten(@grey, 5%);
-            color: @white;
+                font-size: 1rem;
+                font-style: italic;
+                border: none;
 
-            &::placeholder {
-                color: lighten(@grey, 20%);
+                background-color: lighten(@grey, 5%);
+                color: @white;
+
+                &::placeholder {
+                    color: lighten(@grey, 20%);
+                }
+
+                &:focus {
+                    background-color: @white;
+                    color: #000;
+                }
             }
-
-            &:focus {
-                background-color: @white;
-                color: #000;
+            a.btn {
+                width: 20%;
+                margin-right: 0;
+                padding: 0.5rem 1rem;
             }
-        }
-        a.btn {
-            width: 20%;
-            margin-right: 0;
-            padding: 0.5rem 1rem;
         }
     }
 }
@@ -291,17 +193,15 @@ div.blog {
 
         div.gridSecond {
             display: grid;
+            margin: 0 auto;
             grid-template-areas:    "gridS1 gridS2 gridS3 gridS3"
                                     "gridS4 gridS4 gridS5 gridS6";
-            grid-gap: 15px;
+            grid-gap: 1rem;
 
             > section {
                 justify-content: flex-start;
-
                 padding-bottom: 30px;
-
                 background-color: lighten(@white, 8%);
-
                 cursor: pointer;
 
                 &::before {
@@ -328,7 +228,7 @@ div.blog {
                     h3 {
                         margin: 15px 0;
                         padding: 0 20px;
-                        
+
                         font-size: 1rem;
                         font-weight: bold;
                     }
@@ -362,9 +262,9 @@ div.blog {
 
         a.btn {
             margin-top: 2rem;
-            
+
             padding: 0.7rem 2.8rem;
-            
+
             color: @white;
         }
     }

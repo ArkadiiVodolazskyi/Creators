@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Link Fontawesome icons -->
+    <script src="https://kit.fontawesome.com/793c03e560.js"></script>
+
+    <!-- Link fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+
+    <!-- Link user styles -->
+    <link rel="stylesheet" href="css/blog.css">
+
+    <title>We are creators - Blog</title>
+</head>
+<body>
+
+    <header>
+		<div class="wrapper">
+			<nav>
+				<a href="./index.html" class="btn home">
+					<i class="fas fa-arrow-alt-circle-left"></i>
+                    Back to the Main page
+                </a>
+
+                <a href="https://t.me/TheSouthernCity" class="btn contact">
+                    <i class="fab fa-telegram-plane"></i>
+                    Contact Us
+                </a>
+			</nav>
+		</div>
+	</header>
+
+    <div class="blog">
+        <div class="wrapper">
+            <h2>This is our cool blog!</h2>
+
+            <div class="gridSecond">
+
+                <section class="gridS1">
+                    <div class="img" style="background-image: url(img/1.jpg)"></div>
+                    <div class="text">
+                        <h3>We were champions last month</h3>
+                        <p>These was a championship between hackers from all over the world. We won.</p>
+                    </div>
+                </section>
+
+                <section class="gridS2">
+                    <div class="img" style="background-image: url(img/2.jpg)"></div>
+                    <div class="text">
+                        <h3>We were champions last month</h3>
+                        <p>These was a championship between hackers from all over the world. We won.</p>
+                    </div>
+                </section>
+
+                <section class="gridS3">
+                    <div class="img" style="background-image: url(img/3.jpg)"></div>
+                    <div class="text">
+                        <h3>We were champions last month</h3>
+                        <p>These was a championship between hackers from all over the world. We won.</p>
+                    </div>
+                </section>
+
+                <section class="gridS4">
+                    <div class="img" style="background-image: url(img/4.jpg)"></div>
+                    <div class="text">
+                        <h3>We were champions last month</h3>
+                        <p>These was a championship between hackers from all over the world. We won.</p>
+                    </div>
+                </section>
+
+                <section class="gridS5">
+                    <div class="img" style="background-image: url(img/5.jpg)"></div>
+                    <div class="text">
+                        <h3>We were champions last month</h3>
+                        <p>These was a championship between hackers from all over the world. We won.</p>
+                    </div>
+                </section>
+
+                <section class="gridS6">
+                    <div class="img" style="background-image: url(img/6.jpg)"></div>
+                    <div class="text">
+                        <h3>We were champions last month</h3>
+                        <p>These was a championship between hackers from all over the world. We won.</p>
+                    </div>
+                </section>
+
+            </div>
+
+			<div class="options">
+				<div class="moreSocial">
+					<button id="moreSocial">Find out more</button>
+                    <h6>in our social media</h6>
+
+                    <ul id="moreMedia">
+                        <li><a href="#" class="fb">
+                            <i class="fab fa-facebook-f"></i>
+                        </a></li>
+                        <li><a href="#" class="vk">
+                            <i class="fab fa-vk"></i>
+                        </a></li>
+                        <li><a href="#" class="tg">
+                            <i class="fab fa-telegram-plane"></i>
+                        </a></li>
+                        <li><a href="#" class="gl">
+                            <i class="fab fa-google"></i>
+                        </a></li>
+                        <li><a href="#" class="ln">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a></li>
+                    </ul>
+				</div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        <div class="wrapper">
+            <span>Design by <a href="https://webdesign-master.ru">Webdesign Master</a>.</span>
+
+            <div class="text">
+                <h3>We are real</h3>
+                <h2>Creators</h2>
+                <span>~©~</span>
+            </div>
+
+            <span>Code by <a href="https://github.com/ArkadiiVodolazskyi">Arkadii Vodolazskyi</a>.</span>
+        </div>
+    </footer>
+
+    <!-- Some scripts -->
+
+    <script type="text/javascript">
+        // blog.html | #moreSocial
+
+        let moreSocial = document.getElementById("moreSocial");
+        let moreMedia = document.getElementById("moreMedia");
+        let mediaLinks = moreMedia.querySelectorAll("li a");
+
+        moreSocial.addEventListener("click", function() {
+
+            if (moreMedia.classList.contains("opened")) {
+                moreMedia.classList.remove("opened");
+            } else {
+                moreMedia.classList.add("opened");
+                setTimeout(() => {
+                    moreMedia.classList.remove("opened");
+                }, 1500);
+            }
+        });
+
+        moreMedia.addEventListener("mouseout", function(e) {
+
+            if (e.toElement.className === "wrapper" || e.toElement.className === "options") {
+                moreMedia.classList.remove("opened");
+            }
+
+        });
+
+        mediaLinks.forEach((link, e) => {
+            link.addEventListener("click", () => {
+                moreMedia.classList.remove("opened");
+            })
+        });
+    </script>
+</body>
+</html>
